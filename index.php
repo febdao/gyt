@@ -47,6 +47,13 @@
 			width: 350px;
 			background: #eee;
 			margin-top: 17px;
+			text-align: left;
+		}
+
+		.sidebar h3 {
+			padding: 0 15px;
+			color: #456;
+			margin-bottom: 0px;
 		}
 
 		.footer {
@@ -60,7 +67,21 @@
 		}
 
 		.list-post {
-			text-align: left;
+	    list-style: none;
+	    padding-left: 0;
+	    margin-top: 5px;
+		}
+
+		.list-post a {
+	    color: #890;
+	    text-decoration: none;
+	    padding: 3px 15px;
+	    display: block;
+	    border-bottom: 1px dotted #ddd;
+		}
+
+		.list-post a:hover {
+			color: #456;
 		}
 
 	</style>
@@ -68,11 +89,32 @@
 <body>
 	<div class="banner desktop-only">
 		<a href="https://www.facebook.com/gocyeuthuong.net/" target="_blank">
-		  <img src="banner.jpg" alt="Góc yêu thương | Góc nhỏ để yêu thương" title="Góc yêu thương | Góc nhỏ để yêu thương">
+		  <img src="banner2.jpg" alt="Góc yêu thương | Góc nhỏ để yêu thương" title="Góc yêu thương | Góc nhỏ để yêu thương">
 		</a>
 	</div>
 
 	<div class="main-content">
+		<div class="sidebar">
+			<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fgocyeuthuong.net%2F&tabs&width=340&height=70&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=292300460886432" width="340" height="70" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+
+			<h3>5 bài ngẫu nhiên</h3>
+			<ul class="list-post">
+			<?php
+				$random_keys = array_rand($data['ids'], 5);
+
+				// Random post
+				for( $i = 0; $i<5; $i++ ) {
+            print '<li><a href="https://www.facebook.com/gocyeuthuong.net/posts/'.$data['ids'][$random_keys[$i]]["id"].'">⊹ '.$data['ids'][$random_keys[$i]]["title"].'</a></li>';
+         }
+				
+				// Get all post
+				// foreach ($random_data['ids'] as $item) {
+				// 	print '<li><a href="https://www.facebook.com/gocyeuthuong.net/posts/'.$item["id"].'">⊹ '.$item["title"].'</a></li>';
+				// }
+			?>
+			</ul>
+		</div>
+
 		<div class="content">
 		<?php 
 			foreach ($data['ids'] as $item) {
@@ -82,21 +124,10 @@
 		?>
 		</div>
 
-		<div class="sidebar">
-		<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fgocyeuthuong.net%2F&tabs&width=340&height=70&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=292300460886432" width="340" height="70" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-
-			<ul class="list-post">
-			<?php 
-				foreach ($data['ids'] as $item) {
-					print '<li><a href="https://www.facebook.com/gocyeuthuong.net/posts/'.$item["id"].'">'.$item["title"].'</a></li>';
-				}
-			?>
-			</ul>
-		</div>
 	</div>
 
 	<div class="footer">
-		<a href="https://www.facebook.com/gocyeuthuong.net" target="_blank" title="Gocyeuthuong on Facebool">GocYeuThuong.Net © 2017 </a>
+		<a href="http://gocyeuthuong.net" title="Gocyeuthuong">GocYeuThuong.Net © 2017 </a>
 	</div>
 </body>
 </html>
