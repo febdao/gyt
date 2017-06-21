@@ -7,13 +7,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="/favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Gocyeuthuong.net | Góc nhỏ để yêu thương</title>
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 	<meta name="description" content="Góc nhỏ để yêu thương | Truyện ngắn | Blog tình yêu">
 	<meta name="keywords" content="Góc nhỏ để yêu thương | Truyện ngắn | Blog tình yêu">
+	<meta property="fb:pages" content="421944548010384" />
 	<style type="text/css">
 		body {
 			margin: 0;
@@ -118,7 +120,12 @@
 		<div class="content">
 		<?php 
 			foreach ($data['ids'] as $item) {
-				print '<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fgocyeuthuong.net%2Fposts%2F'.$item["id"].'%3A0&width=350" width="350" height="529" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>';
+				if($item["type"] == "video") {
+					print '<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fgocyeuthuong.net%2Fvideos%2F'.$item["id"].'%2F&width=350&show_text=true&appId=292300460886432&height=344" width="350" height="344" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>';
+				}
+				else {
+					print '<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fgocyeuthuong.net%2Fposts%2F'.$item["id"].'%3A0&width=350" width="350" height="529" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>';
+				}
 				
 			}
 		?>
