@@ -102,7 +102,7 @@
 			<h3>10 bài ngẫu nhiên</h3>
 			<ul class="list-post">
 			<?php
-				$random_keys = array_rand($data['ids'], 5);
+				$random_keys = array_rand($data['ids'], 10);
 
 				// Random post
 				for( $i = 0; $i<10; $i++ ) {
