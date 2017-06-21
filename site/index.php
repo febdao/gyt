@@ -99,13 +99,13 @@
 		<div class="sidebar">
 			<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fgocyeuthuong.net%2F&tabs&width=340&height=70&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=292300460886432" width="340" height="70" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 
-			<h3>5 bài ngẫu nhiên</h3>
+			<h3>10 bài ngẫu nhiên</h3>
 			<ul class="list-post">
 			<?php
 				$random_keys = array_rand($data['ids'], 5);
 
 				// Random post
-				for( $i = 0; $i<5; $i++ ) {
+				for( $i = 0; $i<10; $i++ ) {
             print '<li><a href="https://www.facebook.com/gocyeuthuong.net/posts/'.$data['ids'][$random_keys[$i]]["id"].'">⊹ '.$data['ids'][$random_keys[$i]]["title"].'</a></li>';
          }
 				
