@@ -108,7 +108,7 @@
 				for( $i = 0; $i<10; $i++ ) {
             print '<li><a href="https://www.facebook.com/gocyeuthuong.net/posts/'.$data['ids'][$random_keys[$i]]["id"].'">⊹ '.$data['ids'][$random_keys[$i]]["title"].'</a></li>';
          }
-				
+
 				// Get all post
 				// foreach ($random_data['ids'] as $item) {
 				// 	print '<li><a href="https://www.facebook.com/gocyeuthuong.net/posts/'.$item["id"].'">⊹ '.$item["title"].'</a></li>';
@@ -118,15 +118,18 @@
 		</div>
 
 		<div class="content">
-		<?php 
+		<?php
 			foreach ($data['ids'] as $item) {
 				if($item["type"] == "video") {
 					print '<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fgocyeuthuong.net%2Fvideos%2F'.$item["id"].'%2F&width=350&show_text=true&appId=292300460886432&height=344" width="350" height="344" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>';
 				}
+				else if($item["type"] == "pic") {
+					print '<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fgocyeuthuong.net%2Fposts%2F'.$item["id"].'%3A0&width=350" width="350" height="790" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>';
+				}
 				else {
 					print '<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fgocyeuthuong.net%2Fposts%2F'.$item["id"].'%3A0&width=350" width="350" height="529" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>';
 				}
-				
+
 			}
 		?>
 		</div>
@@ -136,5 +139,6 @@
 	<div class="footer">
 		<a href="http://gocyeuthuong.net" title="Gocyeuthuong">GocYeuThuong.Net © 2017 </a>
 	</div>
+	
 </body>
 </html>
